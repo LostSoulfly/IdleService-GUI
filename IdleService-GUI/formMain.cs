@@ -12,7 +12,7 @@ namespace IdleService_GUI
     {
         private bool changesMade;
         private string settingsFileName = "MinerService.json";
-        public Settings settings = new Settings();
+        private Settings settings = new Settings();
         private List<TextBox> formTextBoxes = new List<TextBox>();
         private List<Label> textBoxLabels = new List<Label>();
         private List<NumericUpDown> formNumericUpDown = new List<NumericUpDown>();
@@ -264,12 +264,16 @@ namespace IdleService_GUI
 
         private void minerConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MinerEditor editor = new MinerEditor(settings);
+            editor.ShowDialog();
 
         }
 
         private void ignoredProgramsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            IgnoreList ignore = new IgnoreList(settings);
+            if (ignore.ShowDialog() == DialogResult.Yes)
+                changesMade = true;
         }
     }
 }
