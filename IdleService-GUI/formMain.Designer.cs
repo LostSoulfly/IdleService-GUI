@@ -39,10 +39,11 @@
             this.startServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uninstallServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkedListSettings = new System.Windows.Forms.CheckedListBox();
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minerConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ignoredProgramsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkedListSettings = new System.Windows.Forms.CheckedListBox();
+            this.installServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +73,7 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadToolStripMenuItem.Text = "&Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -80,19 +81,19 @@
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(97, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -102,6 +103,7 @@
             this.runToolStripMenuItem,
             this.startServiceToolStripMenuItem,
             this.stopServiceToolStripMenuItem,
+            this.installServiceToolStripMenuItem,
             this.uninstallServiceToolStripMenuItem});
             this.idleServiceToolStripMenuItem.Name = "idleServiceToolStripMenuItem";
             this.idleServiceToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
@@ -112,35 +114,28 @@
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.runToolStripMenuItem.Text = "Run";
+            this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
             // startServiceToolStripMenuItem
             // 
             this.startServiceToolStripMenuItem.Name = "startServiceToolStripMenuItem";
             this.startServiceToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.startServiceToolStripMenuItem.Text = "Start Service";
+            this.startServiceToolStripMenuItem.Click += new System.EventHandler(this.startServiceToolStripMenuItem_Click);
             // 
             // stopServiceToolStripMenuItem
             // 
             this.stopServiceToolStripMenuItem.Name = "stopServiceToolStripMenuItem";
             this.stopServiceToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.stopServiceToolStripMenuItem.Text = "Stop Service";
+            this.stopServiceToolStripMenuItem.Click += new System.EventHandler(this.stopServiceToolStripMenuItem_Click);
             // 
             // uninstallServiceToolStripMenuItem
             // 
             this.uninstallServiceToolStripMenuItem.Name = "uninstallServiceToolStripMenuItem";
             this.uninstallServiceToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.uninstallServiceToolStripMenuItem.Text = "Uninstall Service";
-            // 
-            // checkedListSettings
-            // 
-            this.checkedListSettings.CheckOnClick = true;
-            this.checkedListSettings.FormattingEnabled = true;
-            this.checkedListSettings.Location = new System.Drawing.Point(12, 27);
-            this.checkedListSettings.Name = "checkedListSettings";
-            this.checkedListSettings.Size = new System.Drawing.Size(196, 169);
-            this.checkedListSettings.TabIndex = 5;
-            this.checkedListSettings.Visible = false;
-            this.checkedListSettings.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ItemWasUpdated);
+            this.uninstallServiceToolStripMenuItem.Click += new System.EventHandler(this.uninstallServiceToolStripMenuItem_Click);
             // 
             // configurationToolStripMenuItem
             // 
@@ -164,6 +159,24 @@
             this.ignoredProgramsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.ignoredProgramsToolStripMenuItem.Text = "&Ignored Programs";
             this.ignoredProgramsToolStripMenuItem.Click += new System.EventHandler(this.ignoredProgramsToolStripMenuItem_Click);
+            // 
+            // checkedListSettings
+            // 
+            this.checkedListSettings.CheckOnClick = true;
+            this.checkedListSettings.FormattingEnabled = true;
+            this.checkedListSettings.Location = new System.Drawing.Point(12, 27);
+            this.checkedListSettings.Name = "checkedListSettings";
+            this.checkedListSettings.Size = new System.Drawing.Size(196, 169);
+            this.checkedListSettings.TabIndex = 5;
+            this.checkedListSettings.Visible = false;
+            this.checkedListSettings.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ItemWasUpdated);
+            // 
+            // installServiceToolStripMenuItem
+            // 
+            this.installServiceToolStripMenuItem.Name = "installServiceToolStripMenuItem";
+            this.installServiceToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.installServiceToolStripMenuItem.Text = "Install Service";
+            this.installServiceToolStripMenuItem.Click += new System.EventHandler(this.installServiceToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -203,6 +216,7 @@
         private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minerConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ignoredProgramsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem installServiceToolStripMenuItem;
     }
 }
 

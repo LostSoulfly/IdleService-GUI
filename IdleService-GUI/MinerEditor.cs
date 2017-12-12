@@ -107,7 +107,7 @@ namespace IdleService_GUI
             settings.cpuMiners = tempCpu;
             settings.gpuMiners = tempGpu;
 
-            MessageBox.Show("Settings updated!");
+            //MessageBox.Show("Settings updated!");
         }
 
         private void PopulateMiner(MinerList miner)
@@ -135,7 +135,7 @@ namespace IdleService_GUI
             toolTip.SetToolTip(buttonBack, "Goes back one entry in the currently selected Miner list.");
             toolTip.SetToolTip(buttonForward, "Goes forward one entry in the currently selected Miner list.");
             toolTip.SetToolTip(buttonCancel, "Close this window and cancel all changes.");
-            toolTip.SetToolTip(buttonSave, "Save all current changes. Does not close the window.");
+            toolTip.SetToolTip(buttonSave, "Save all current changes. Closes the window!");
             toolTip.SetToolTip(comboMiners, "Choose which Miner list to view or edit the contents of.");
             toolTip.SetToolTip(checkMineNotIdle, "If checked, this miner will be enabled while a user is both idle OR inactive.");
             toolTip.SetToolTip(checkMinerDisabled, "If checked, this miner will not be used at all.");

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -265,7 +266,8 @@ namespace IdleService_GUI
         private void minerConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MinerEditor editor = new MinerEditor(settings);
-            editor.ShowDialog();
+            if (editor.ShowDialog() == DialogResult.Yes)
+                changesMade = true;
 
         }
 
@@ -274,6 +276,56 @@ namespace IdleService_GUI
             IgnoreList ignore = new IgnoreList(settings);
             if (ignore.ShowDialog() == DialogResult.Yes)
                 changesMade = true;
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists("IdleService.exe"))
+            {
+                MessageBox.Show("IdleService was not found in this directory.", "Error", MessageBoxButtons.OK);
+            }
+
+            Process.Start("IdleService.exe");
+        }
+
+        private void startServiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists("IdleService.exe"))
+            {
+                MessageBox.Show("IdleService was not found in this directory.", "Error", MessageBoxButtons.OK);
+            }
+
+            Process.Start("IdleService.exe", "start");
+        }
+
+        private void stopServiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists("IdleService.exe"))
+            {
+                MessageBox.Show("IdleService was not found in this directory.", "Error", MessageBoxButtons.OK);
+            }
+
+            Process.Start("IdleService.exe", "stop");
+        }
+
+        private void uninstallServiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists("IdleService.exe"))
+            {
+                MessageBox.Show("IdleService was not found in this directory.", "Error", MessageBoxButtons.OK);
+            }
+
+            Process.Start("IdleService.exe", "uninstall");
+        }
+
+        private void installServiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists("IdleService.exe"))
+            {
+                MessageBox.Show("IdleService was not found in this directory.", "Error", MessageBoxButtons.OK);
+            }
+
+            Process.Start("IdleService.exe", "install");
         }
     }
 }
